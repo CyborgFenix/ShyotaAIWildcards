@@ -1,0 +1,65 @@
+.container{
+    text-align: center;
+    width: 90%;
+    margin: 2% auto;
+    /*border: 2px solid #ccc;*/
+}
+
+.cointainer-chips-selectors{
+    margin-top: 5%;
+    border-bottom: 1px solid #f53d7c;
+    box-shadow: 0px 9px 20px 0px #f53d7c;
+    padding: 5px;
+}
+
+.example-action-buttons {
+    padding-bottom: 20px;
+  }
+  
+  .example-headers-align .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  ::ng-deep .mat-expansion-panel-body {
+    padding: 0 24px 16px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: #f53d7c;
+  }
+
+  .example-headers-align .mat-mdc-form-field + .mat-mdc-form-field {
+    margin-left: 8px;
+  }
+
+  .selects-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /*background-color: blue;*/
+    width: 100%;
+  }
+
+  .individual-select{
+    display: inline-grid;
+    border: 5px solid #f53d7c;
+    /*background-color: red;*/
+  }
+
+  .individual-select label{
+    font-weight: bold;
+  }
+
+  .text-area-container{
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .text-area-container mat-form-field{
+    width: 80%;
+    margin-top: 2%;
+  }
+

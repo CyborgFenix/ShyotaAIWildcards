@@ -1,0 +1,101 @@
+<div class="container">
+    <h1>Shyota Wildcards Selector</h1>
+
+    <div class="cointainer-chips-selectors">
+        <mat-chip-listbox aria-label="Category selection" *ngIf="categoriesData">
+            <div *ngFor="let category of categoriesData">
+                <mat-chip-option 
+                  color="accent"
+                  (click)="getCategorySelected(category)"
+                >
+                  {{category.Name}}
+                </mat-chip-option>
+            </div>
+        </mat-chip-listbox>
+    </div>
+
+    <!--Acordion to show subcategories of selected category-->
+    <div class="example-action-buttons">
+        <!--
+        <button mat-button (click)="accordion.openAll()">Expand All</button>
+        <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+        -->
+    </div>
+    <mat-accordion class="example-headers-align"  *ngIf="categorySelected">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{categorySelected.Name}}
+          </mat-panel-title>
+          <mat-panel-description>
+            Choose your subcategories items
+            <mat-icon>category_search</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+      
+        <!--Bucle for each sub cat-->
+        
+        <!-- 1st option to render selects (work whitout erros with but old style)
+        <div class="selects-container">
+          <div *ngFor="let subCategory of categorySelected.SubCategories">
+            <div class="individual-select">
+              <label>{{subCategory.Name}}</label>
+              <select (change)="optionSelected($event)">
+                <option disabled selected value>[ Select your item ]</option>
+                <option *ngFor="let item of subCategory.Items" [value]="item">{{item}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        -->
+
+        <!--2nd option to render selects (work without errors and basic materials styles)-->
+        <div *ngFor="let subCategory of categorySelected.SubCategories">
+          <mat-form-field>
+            <mat-label>{{subCategory.Name}}</mat-label>
+            <select matNativeControl (change)="optionSelected($event)">
+              <option disabled selected value>[Select your item]</option>
+              <option *ngFor="let item of subCategory.Items" [value]="item">{{item}}</option>
+            </select>
+          </mat-form-field>
+        </div>
+        
+
+        <!--3th option to render selects
+          (Throw: ERROR Error: NG0102: 
+          A new render operation began before the previous operation ended. 
+          Did you trigger change detection from afterRender or afterNextRender?)
+        <div *ngFor="let subCategory of categorySelected.SubCategories">
+          <mat-form-field>
+            <mat-label>{{subCategory.Name}}</mat-label>
+            <mat-select>
+              <mat-option disabled selected value>[Select your item]</mat-option>
+              <mat-option *ngFor="let item of subCategory.Items" [value]="item">{{item}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        -->
+      <!---->
+
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <!--Text Area-->
+    <div class="text-area-container">
+      <button 
+        mat-icon-button 
+        color="accent" 
+        aria-label="Example icon button with a menu icon"
+        (click)="doCopy()"
+      >
+        <mat-icon>content_copy</mat-icon>
+      </button>
+      <mat-form-field>
+        <mat-label>Prompt result here:</mat-label>
+        <textarea [(ngModel)]="itemSelected" (input)="detectInputInTextArea($event)" rows=20 matInput>{{itemSelected}}</textarea>
+      </mat-form-field>
+    </div>
+</div>
+
+
+
