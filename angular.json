@@ -6,14 +6,14 @@
     "ShyotaAIWildcards_web": {
       "projectType": "application",
       "schematics": {},
-      "root": "",
+      "root": "/dist",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/shyota-aiwildcards-web",
+            "outputPath": "dist/ShyotaAIWildcards",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
